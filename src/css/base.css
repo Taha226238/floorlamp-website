@@ -1,0 +1,206 @@
+/* =============================================================
+   FLOORLAMP.AE — Base / Reset / Typography / Utilities
+============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+
+/* ── Reset ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--f-sans);
+  font-weight: var(--w-regular);
+  font-size: var(--t-base);
+  line-height: var(--lh-normal);
+  color: var(--color-primary);
+  background: var(--color-bg);
+  overflow-x: hidden;
+}
+
+/* ── Headings ─────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--f-serif);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+  color: var(--color-primary);
+}
+
+h1 { font-size: clamp(2.75rem, 5.5vw, 5rem);  letter-spacing: -0.02em; line-height: 1.05; }
+h2 { font-size: clamp(1.875rem, 3.2vw, 3rem);  letter-spacing: -0.015em; line-height: 1.1; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.875rem); letter-spacing: -0.01em; font-weight: 400; }
+h4 { font-size: clamp(1rem, 1.6vw, 1.3rem);    font-weight: 400; }
+
+/* ── Body text ────────────────────────────────────────── */
+p  { line-height: var(--lh-loose); color: var(--color-muted); }
+ul, ol { list-style: none; }
+a  { color: inherit; text-decoration: none; transition: color var(--tb); }
+img, video { display: block; max-width: 100%; }
+button { cursor: pointer; border: none; background: none; font-family: var(--f-sans); color: inherit; }
+input, textarea, select { font-family: var(--f-sans); font-size: var(--t-base); color: var(--color-primary); }
+fieldset { border: none; }
+
+/* ── Container ────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--c-max);
+  margin-inline: auto;
+  padding-inline: var(--cx);
+}
+.container--narrow { max-width: var(--c-mid); }
+
+/* ── Typography helpers ───────────────────────────────── */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--f-sans);
+  font-size: 0.65rem;
+  font-weight: var(--w-semibold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.section-title {
+  font-family: var(--f-serif);
+  font-size: clamp(1.875rem, 3vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: var(--color-primary);
+}
+
+.section-sub {
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  font-weight: var(--w-light);
+  color: var(--color-muted);
+  line-height: var(--lh-loose);
+  max-width: 500px;
+}
+
+/* ── Utilities ────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+.text-center { text-align: center; }
+.text-gold   { color: var(--color-gold); }
+.text-muted  { color: var(--color-muted); }
+.text-white  { color: var(--color-white); }
+
+/* ── Focus ────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* ── Selection ────────────────────────────────────────── */
+::selection { background: var(--color-gold-lt); color: var(--color-primary); }
+
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 4px; height: 4px; }
+::-webkit-scrollbar-track  { background: var(--color-surface); }
+::-webkit-scrollbar-thumb  { background: var(--color-border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }
+
+/* ── Image placeholder ────────────────────────────────── */
+.img-placeholder {
+  position: relative;
+  background: linear-gradient(135deg, #EEECE6 0%, #E8E5DE 60%, #F0EDE7 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s3);
+  overflow: hidden;
+}
+
+/* shimmer sweep */
+.img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%);
+  pointer-events: none;
+}
+
+/* warm bottom glow */
+.img-placeholder::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(184,149,90,0.07), transparent);
+  pointer-events: none;
+}
+
+.img-placeholder svg {
+  position: relative; z-index: 1;
+  width: 26px; height: 26px;
+  opacity: 0.2;
+  color: var(--color-gold);
+}
+
+.img-placeholder span {
+  position: relative; z-index: 1;
+  font-size: 0.6rem;
+  font-weight: var(--w-semibold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  opacity: 0.5;
+}
+
+/* ── Stars ────────────────────────────────────────────── */
+.stars { display: flex; align-items: center; gap: 2px; }
+.stars svg { width: 12px; height: 12px; fill: var(--color-gold); color: var(--color-gold); }
+.stars svg.empty { fill: none; stroke: var(--color-border); stroke-width: 1.5; }
+
+/* ── Animations & reveals ─────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 0.85; transform: scale(1.05); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+}
+.reveal.is-visible  { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 70ms; }
+.reveal-d2 { transition-delay: 140ms; }
+.reveal-d3 { transition-delay: 210ms; }
+.reveal-d4 { transition-delay: 280ms; }
+
+/* legacy delay class names */
+.reveal-delay-1 { transition-delay: 70ms; }
+.reveal-delay-2 { transition-delay: 140ms; }
+.reveal-delay-3 { transition-delay: 210ms; }
+.reveal-delay-4 { transition-delay: 280ms; }
+
+.page-enter { animation: fadeIn 0.45s var(--ease) both; }
