@@ -1,0 +1,102 @@
+/* =============================================================
+   FLOORLAMP.AE — Layout  (grids, sections, containers)
+============================================================= */
+
+main { padding-top: var(--nav-h); }
+
+/* ── Sections ─────────────────────────────────────────── */
+.section      { padding-block: var(--sec); }
+.section--sm  { padding-block: var(--sec-sm); }
+.section--white   { background: var(--color-white); }
+.section--surface { background: var(--color-surface); }
+.section--dark    { background: var(--color-primary); color: var(--color-white); }
+
+/* ── Product grid ─────────────────────────────────────── */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s6);
+}
+
+/* ── Category grid ────────────────────────────────────── */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s5);
+}
+
+/* ── Two-column split ─────────────────────────────────── */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s20);
+  align-items: center;
+}
+
+/* ── Feature / blog / review grids ───────────────────── */
+.features-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--s8); }
+.blog-grid     { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--s8); }
+.reviews-grid  { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--s6); }
+
+/* ── Section header ───────────────────────────────────── */
+.section-header          { margin-bottom: var(--s12); }
+.section-header--center  { text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--s3); }
+.section-header--left    { display: flex; flex-direction: column; gap: var(--s3); }
+.section-header--split   { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s8); }
+.section-header--split .section-header__text { display: flex; flex-direction: column; gap: var(--s3); }
+
+/* ── Empty grid state ─────────────────────────────────── */
+.product-grid__empty {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: var(--s16) 0;
+  color: var(--color-muted);
+  font-size: var(--t-base);
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+
+@media (max-width: 1200px) {
+  .product-grid { grid-template-columns: repeat(3,1fr); }
+  .footer__grid { grid-template-columns: 1.5fr 1fr 1fr; }
+  .footer__grid > *:first-child { grid-column: 1/-1; }
+}
+
+@media (max-width: 1024px) {
+  .nav__links     { display: none; }
+  .nav__hamburger { display: flex; }
+
+  .product-grid  { grid-template-columns: repeat(2,1fr); }
+  .category-grid { grid-template-columns: repeat(2,1fr); }
+  .features-grid { grid-template-columns: repeat(2,1fr); }
+  .blog-grid     { grid-template-columns: repeat(2,1fr); }
+  .reviews-grid  { grid-template-columns: repeat(2,1fr); }
+
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: var(--s12);
+  }
+
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__grid > *:first-child { grid-column: 1/-1; }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-h: var(--nav-h-sm); }
+
+  .product-grid  { grid-template-columns: repeat(2,1fr); gap: var(--s4); }
+  .category-grid { grid-template-columns: repeat(2,1fr); gap: var(--s4); }
+  .features-grid { grid-template-columns: 1fr; gap: var(--s6); }
+  .blog-grid     { grid-template-columns: 1fr; gap: var(--s6); }
+  .reviews-grid  { grid-template-columns: 1fr; }
+
+  .footer__grid  { grid-template-columns: 1fr; gap: var(--s8); }
+  .footer__bottom { flex-direction: column; text-align: center; }
+  .section-header--split { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .product-grid { grid-template-columns: repeat(2,1fr); gap: var(--s3); }
+}
