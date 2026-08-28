@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Do not index cart or checkout flows
+Disallow: /checkout
+Disallow: /cart
+
+Sitemap: https://floorlamp.ae/sitemap.xml
