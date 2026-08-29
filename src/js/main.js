@@ -9,7 +9,10 @@
    with the correct root for the current page depth.
 ──────────────────────────────────────────────────────────── */
 function getImgRoot() {
-  return window.location.pathname.includes('/pages/') ? '../../src/images/' : 'src/images/';
+  const p = window.location.pathname;
+  if (p.includes('/pages/')) return '../src/images/';
+  if (p.includes('/blog/'))  return '../src/images/';
+  return 'src/images/';
 }
 
 function resolveImg(path) {
@@ -399,7 +402,7 @@ function buildProductCard(product) {
 
   // Works from both root (index.html) and pages/ subfolder
   const productBase = window.location.pathname.includes('/pages/') ? 'product.html' : 'pages/product.html';
-  const imgBase     = window.location.pathname.includes('/pages/') ? '../../src/images/products/' : 'src/images/products/';
+  const imgBase     = getImgRoot() + 'products/';
 
   const badge = product.badge
     ? '<span class="product-card__badge' + (product.new ? ' product-card__badge--new' : '') + (product.badge === 'Sold Out' ? ' product-card__badge--soldout' : '') + '">' + product.badge + '</span>'
