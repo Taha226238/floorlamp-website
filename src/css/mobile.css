@@ -100,8 +100,21 @@
   .product-detail__grid { grid-template-columns: 1fr; gap: var(--s8); }
   .product-gallery { position: static; }
 
-  /* Gallery main image — shorter on mobile */
-  .product-gallery__main { aspect-ratio: 4/3; }
+  /* Gallery — full viewport width, tall enough to see the full lamp */
+  .product-gallery__main {
+    aspect-ratio: unset;
+    height: 75vh;
+    height: calc(100svh - var(--nav-h) - 120px);
+    min-height: 480px;
+    max-height: 700px;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   /* Thumbs — 4 in a row still works, just smaller */
   .product-gallery__thumbs { gap: var(--s2); }
@@ -133,7 +146,17 @@
 }
 
 @media (max-width: 480px) {
-  .product-gallery__main { aspect-ratio: 1/1; }
+  .product-gallery__main {
+    height: 75vh;
+    height: calc(100svh - var(--nav-h) - 100px);
+    min-height: 460px;
+    max-height: 650px;
+    aspect-ratio: unset;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   .product-gallery__thumbs { grid-template-columns: repeat(4, 1fr); }
   .product-info__title  { font-size: 1.35rem; }
   .product-info__price  { font-size: 1.5rem; }
