@@ -261,7 +261,7 @@ function populateProductPage(product) {
   if (galleryMain) {
     galleryMain.innerHTML = `
       <img src="${imagePaths[0]}" alt="${product.imageAlt || product.name}"
-           id="gallery-main-img-el" style="width:100%;height:100%;object-fit:cover;display:block">`;
+           id="gallery-main-img-el" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0">`;
     galleryMain.setAttribute('aria-label', product.imageAlt || product.name);
   }
 
