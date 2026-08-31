@@ -16,7 +16,7 @@ const PRODUCTS = [
     slug: 'modern-led-floor-lamp-living-room',
     images: [
       'images/products/f11.jpg',
-      'images/products/gh.jpg',
+      'images/products/f55.jpg',
       'images/products/gj.jpg',
       'images/products/g.jpg',
     ],
