@@ -281,6 +281,20 @@ function populateProductPage(product) {
     });
   });
 
+  /* Arrow navigation */
+  let currentIndex = 0;
+
+  function goToImage(index) {
+    const total = imagePaths.length;
+    currentIndex = (index + total) % total;
+    const mainImg = document.getElementById('gallery-main-img-el');
+    if (mainImg) mainImg.src = imagePaths[currentIndex];
+    galleryThumbs.forEach((t, i) => t.classList.toggle('active', i === currentIndex));
+  }
+
+  document.getElementById('gallery-prev')?.addEventListener('click', () => goToImage(currentIndex - 1));
+  document.getElementById('gallery-next')?.addEventListener('click', () => goToImage(currentIndex + 1));
+
   /* Description tab */
   setText('tab-full-desc', product.description);
 
