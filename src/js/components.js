@@ -1,5 +1,5 @@
 ﻿/**
- * FLOORLAMP.AE — Shared HTML Components
+ * lamporia.ae — Shared HTML Components
  * Injects nav, search overlay, cart drawer, and footer
  * into every page automatically via placeholder divs.
  *
@@ -25,8 +25,8 @@
 <header>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav__inner">
-      <a href="${root}index.html" class="nav__logo" aria-label="Floorlamp.ae — Home">
-        <img src="${root}src/images/lo.png" alt="Floorlamp.ae" class="nav__logo-img">
+      <a href="${root}index.html" class="nav__logo" aria-label="Lamporia.ae — Home">
+        <img src="${root}src/images/ok2.png" alt="Lamporia.ae" class="nav__logo-img">
       </a>
       <ul class="nav__links" role="list">
         <li><a href="${root}index.html"          class="nav__link">Home</a></li>
@@ -113,10 +113,12 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <a href="${root}index.html" class="footer__brand-logo" aria-label="Floorlamp.ae">Floorlamp<span>.</span>ae</a>
+        <a href="${root}index.html" class="footer__brand-logo" aria-label="Lamporia.ae">
+          <img src="${root}src/images/ok3.png" alt="Lamporia.ae" style="height:36px;width:auto;display:block;">
+        </a>
         <p class="footer__brand-desc">A UAE-based lighting store bringing modern, functional and beautiful lighting into everyday spaces.</p>
         <nav class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/floorlamp.ae?igsi=a3U3aHFlbmVodTF3&utm_source=qr" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Follow us on Instagram">
+          <a href="https://www.instagram.com/lamporia.ae" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Follow us on Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
           <a href="https://www.tiktok.com/@lamporia.ae?_r=1&_t=ZS-9963S5Xg3l6" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Follow us on TikTok">
@@ -152,7 +154,7 @@
       </nav>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2026 Floorlamp.ae. All rights reserved.</p>
+      <p class="footer__copy">&copy; 2026 Lamporia.ae. All rights reserved.</p>
       <nav class="footer__legal" aria-label="Legal pages">
         <a href="${pg}privacy.html" class="footer__legal-link">Privacy</a>
         <a href="${pg}terms.html"   class="footer__legal-link">Terms</a>
