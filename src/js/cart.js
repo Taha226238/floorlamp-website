@@ -1,5 +1,5 @@
-/**
- * FLOORLAMP.AE — Cart Module
+﻿/**
+ * lamporia.ae — Cart Module
  * Manages cart state with localStorage persistence.
  * Cart drawer UI, add / remove / update operations.
  */
@@ -7,7 +7,7 @@
 const Cart = (() => {
   'use strict';
 
-  const STORAGE_KEY = 'floorlamp_cart';
+  const STORAGE_KEY = 'lamporia_cart';
   let items = [];
 
   /* ── Persistence ──────────────────────────────────────── */
