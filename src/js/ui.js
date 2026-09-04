@@ -1,5 +1,5 @@
-/**
- * FLOORLAMP.AE — UI Module
+﻿/**
+ * lamporia.ae — UI Module
  * Navigation, Accordions, Toast, Animations, Misc UI.
  */
 
