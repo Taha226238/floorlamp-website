@@ -1,5 +1,5 @@
 ﻿/**
- * FLOORLAMP.AE — Main Entry Point
+ * lamporia.ae — Main Entry Point
  * Load order: data.js → components.js → cart.js → search.js → ui.js → main.js
  */
 
@@ -157,11 +157,11 @@ function initProductPage() {
 
 /* ── populateProductPage ──────────────────────────────── */
 function populateProductPage(product) {
-  const BASE    = 'https://floorlamp.ae';
+  const BASE    = 'https://lamporia.ae';
   const pageUrl = BASE + '/product.html?id=' + product.slug;
 
   /* SEO head */
-  document.title = product.seoTitle || product.name + ' | Floorlamp.ae';
+  document.title = product.seoTitle || product.name + ' | lamporia.ae';
   setMeta('meta-desc',     product.metaDesc || product.shortDesc, true);
   setMeta('canonical-tag', pageUrl, false, 'href');
   setMeta('og-url',   pageUrl);
@@ -189,13 +189,13 @@ function populateProductPage(product) {
       '@context': 'https://schema.org', '@type': 'Product',
       name: product.name,
       description: product.description,
-      brand: { '@type': 'Brand', name: 'Floorlamp.ae' },
+      brand: { '@type': 'Brand', name: 'lamporia.ae' },
       aggregateRating: { '@type': 'AggregateRating', ratingValue: product.rating, reviewCount: product.reviewCount },
       offers: {
         '@type': 'Offer', priceCurrency: 'AED',
         availability: product.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
         url: pageUrl,
-        seller: { '@type': 'Organization', name: 'Floorlamp.ae' },
+        seller: { '@type': 'Organization', name: 'lamporia.ae' },
       },
     });
   }
@@ -372,10 +372,10 @@ function getQty() {
 /* ── Recently viewed ──────────────────────────────────── */
 function updateRecentlyViewed(id) {
   try {
-    let rv = JSON.parse(localStorage.getItem('floorlamp_rv') || '[]');
+    let rv = JSON.parse(localStorage.getItem('lamporia_rv') || '[]');
     rv = rv.filter(x => x !== id);
     rv.unshift(id);
-    localStorage.setItem('floorlamp_rv', JSON.stringify(rv.slice(0, 5)));
+    localStorage.setItem('lamporia_rv', JSON.stringify(rv.slice(0, 5)));
   } catch (_) {}
 }
 
@@ -384,7 +384,7 @@ function renderRecentlyViewed() {
   const grid    = document.getElementById('rv-grid');
   if (!section || !grid) return;
   try {
-    const ids      = JSON.parse(localStorage.getItem('floorlamp_rv') || '[]');
+    const ids      = JSON.parse(localStorage.getItem('lamporia_rv') || '[]');
     const products = ids.map(getProductById).filter(Boolean).slice(0, 4);
     if (!products.length) { section.style.display = 'none'; return; }
     section.style.display = '';
@@ -634,7 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ).join('\n\n');
 
     const lines = [
-      '*New Order — Floorlamp.ae*',
+      '*New Order — lamporia.ae*',
       '',
       productLines,
       '',
