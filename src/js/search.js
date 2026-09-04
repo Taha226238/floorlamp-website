@@ -1,5 +1,5 @@
-/**
- * FLOORLAMP.AE — Search Module
+﻿/**
+ * lamporia.ae — Search Module
  * Live product search with modal overlay.
  */
 
